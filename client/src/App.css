@@ -14,6 +14,13 @@ body {
   align-items: center;
 }
 
+#plant-filter {
+
+  text-align: center;
+  color:white;
+
+}
+
 h1 {
   font-weight: 100;
   color: white;
