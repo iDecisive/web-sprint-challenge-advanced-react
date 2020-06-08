@@ -19,7 +19,13 @@ export const useForm = initialValue => {
 
     }
 
-    return [values, handleChanges, showSuccessMessage, setShowSuccessMessage];
+    const clearValues = () => {
+
+        setValues(initialValue);
+
+    }
+
+    return [values, handleChanges, showSuccessMessage, setShowSuccessMessage, clearValues];
 
 }
 
