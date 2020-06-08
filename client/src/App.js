@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
+import PlantListFilter from './components/PlantListFilter';
 import PlantList from "./components/PlantList";
 import ShoppingCart from "./components/ShoppingCart";
 import CheckoutForm from "./components/CheckoutForm";
@@ -13,7 +14,7 @@ function App() {
   //-----State
   
   //state for data from server
-  const [plantData, setPlantData] = useState([{}]);
+  const [plantData, setPlantData] = useState([]);
 
   // array of plants that have been added to the cart
   const [cart, setCart] = useState([]);
@@ -56,7 +57,13 @@ function App() {
         <Route
           exact
           path="/"
-          render={() => <PlantList plantData={plantData} addToCart={addToCart} />}
+          render={() => 
+            <Fragment>
+              
+              <PlantListFilter plantData={plantData} setPlantData={setPlantData}/>
+              <PlantList plantData={plantData} setPlantData={setPlantData} addToCart={addToCart} />
+
+            </Fragment>}
         />
         <Route
           path="/cart"
